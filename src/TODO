@@ -1,0 +1,18 @@
+-- Commandline arguments
+ - Help
+ - Register/Alias
+ - Run
+
+-- Better debugging
+ - Empty lines and comments count as lines
+ - Functions can throw their own errors
+ - Error Logging
+
+-- Better machine state interface
+- Set error
+- Pull item
+- Set execution pointer
+
+-- Types
+-- Commands
+-- Type Conversions

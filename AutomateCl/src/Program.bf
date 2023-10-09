@@ -1,0 +1,5 @@
+namespace AutomateCl;
+
+class Program
+{
+}

@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", Automate = "*", LybCL = "*"}
+
+[Project]
+Name = "AutomateCl"
+StartupObject = "AutomateCl.Program"

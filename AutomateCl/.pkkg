@@ -1,0 +1,8 @@
+l name AutomateCl
+c ver Version 1.0.0
+l author Booklordofhtedings
+a dependencies
+ o -
+  l name LybCl
+  c ver Version 1.0.0
+  l source https://github.com/Booklordofthedings/LybCL

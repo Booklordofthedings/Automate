@@ -1,5 +1,13 @@
 FileVersion = 1
+Dependencies = {corlib = "*", corlib = "*"}
 
 [Project]
 Name = "Automate"
+TargetType = "BeefLib"
 StartupObject = "Automate.Program"
+
+[Platform.Windows]
+Description = "Scripting language runner"
+
+[Configs.Debug.Win64]
+TargetName = "AUtomate"
