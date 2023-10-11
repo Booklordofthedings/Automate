@@ -28,6 +28,7 @@ class AutomateRunner
 	public this()
 	{
 		_commands = new .();
+		_commands.Add(=> DoNothing); //For debugging purposes
 		_lookupFunctions = new .();
 		_lookupObjects = new .();
 		_optimizeds = new .();
@@ -120,7 +121,8 @@ class AutomateRunner
 		for(var line in enumerator)
 		{
 			counter++;
-			if(line.StartsWith('#'))
+			state.ProgramCounter = counter;
+			if(line.StartsWith('#') || line.IsEmpty)
 				continue;
 			else if(line.StartsWith('-') || line.Contains('>'))
 			{
@@ -157,6 +159,7 @@ class AutomateRunner
 					return .Err(_errorStrings[^1]);
 				}
 			}
+			counter = state.ProgramCounter;
 		}
 		delete state;
 		return .Ok;
@@ -175,6 +178,7 @@ class AutomateRunner
 		MachineState state = new .();
 		for(int i < commands.0.Count)
 		{
+			state.ProgramCounter = i;
 			var c = commands.0[i];
 			if(c >= 0)
 			{
@@ -199,8 +203,11 @@ class AutomateRunner
 				state.Stack.Add(res.Value);
 			}
 			//TODO: read stuff from state to see if things have changed
+			i = state.ProgramCounter;
 		}
 		delete state;
 		return .Ok;
 	}
+
+	private static bool DoNothing(MachineState state){return true;}
 }

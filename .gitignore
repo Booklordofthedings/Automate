@@ -1,4 +1,5 @@
 build/
 recovery/
 AutomateCl/repositories/
+AutomateCl/build
 BeefSpace_User.toml
