@@ -26,7 +26,7 @@ class Files
 		var loc = au.Stack.Pop!();
 		if(loc.HasValue && loc.VariantType == typeof(String))
 		{
-
+			if(File.E)
 		}
 		else
 			au.ThrowError("Input parameter for deletefile is not a string");
