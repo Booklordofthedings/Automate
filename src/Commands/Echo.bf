@@ -1,11 +1,34 @@
 namespace Automate.Commands;
-using Automate.Machine;
 using System;
+using System.IO;
 class Echo
 {
-	public static bool Echo(MachineState state)
+	public static void Echo(Automate au)
 	{
-		System.Console.WriteLine(state.Stack[^1].Get<String>());
-		return true;
+		var obj = au.Stack.Pop!();
+		if(obj.HasValue && obj.VariantType == typeof(String))
+		{
+			au.ConsoleCallback(obj.Get<String>());
+		}
+		else
+			au.ThrowError("Cannot echo non String object");
+	}
+
+	public static void Print(Automate au)
+	{
+		var obj = au.Stack.Pop!();
+		if(obj.HasValue && obj.VariantType == typeof(String))
+		{
+			String text = scope .();
+			var res = File.ReadAllText(obj.Get<String>(),text);
+			if(res case .Ok)
+			{
+				au.ConsoleCallback(text);
+			}
+			else
+				au.ThrowError(scope $"Could not read from file: {obj.Get<String>()}");
+		}
+		else
+			au.ThrowError("Cannot print non String object");
 	}
 }

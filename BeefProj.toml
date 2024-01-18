@@ -3,7 +3,6 @@ Dependencies = {corlib = "*", corlib = "*"}
 
 [Project]
 Name = "Automate"
-TargetType = "BeefLib"
 StartupObject = "Automate.Program"
 
 [Platform.Windows]

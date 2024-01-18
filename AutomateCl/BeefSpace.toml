@@ -1,5 +1,0 @@
-FileVersion = 1
-Projects = {AutomateCl = {Path = "."}, Automate = {Path = ".."}, LybCL = {Path = "repositories/LybCl"}}
-
-[Workspace]
-StartupProject = "AutomateCl"
