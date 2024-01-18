@@ -26,7 +26,14 @@ class Files
 		var loc = au.Stack.Pop!();
 		if(loc.HasValue && loc.VariantType == typeof(String))
 		{
-			if(File.E)
+			if(File.Exists(loc.Get<String>()))
+			{
+				var res = File.Delete(loc.Get<String>());
+				if(res case .Err)
+					au.ThrowError( scope $"Could not delete file with the name: {loc.Get<String>()}");
+			}
+			else
+				au.ThrowError("Cannot delete a file that doesnt exist");
 		}
 		else
 			au.ThrowError("Input parameter for deletefile is not a string");

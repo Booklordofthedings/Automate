@@ -1,22 +1,38 @@
 namespace Automate;
 using System;
+using System.IO;
 class Program
 {
-	//[Test]
-	public static void Main()
+	public static void Main(String[] args)
 	{
-		String other = """
-			>filename.dsad
-			mkd
-			""";
-		//490k instructions per ms
-		//1824ms
+		if(args.Count < 1)
+		{
+			Console.WriteLine("""
+				Automate - A stack based scripting language thingy
+				--------------------------------------------------
+				Version: 1.0
+				Author: Booklordofthedings
+				Source Repository: https://Github.com/Booklordofthedings/automate
+				--------------------------------------------------
+				This is the compiled tool, to use it,
+				simply pass the executeable a path to a readable
+				automate script.
+				A list of all valid commands is avilable in the source repo.
+				""");
+			return;
+		}	
+		String text = new .();
+		defer delete text;
+		var res = File.ReadAllText(args[0],text);
+		if(res case .Err)
+		{
+			Console.WriteLine("Automate: Could not read the file to execute. Maybe it doesnt exist or you dont have acess rights.");
+			return;
+		}
 
-
-		Automate o = scope .();
-		o.Instructions.LoadCode(other);
+		Automate o = new .();
+		o.Instructions.LoadCode(text);
 		o.Run();
-		o.Stack.Clear();
-		Console.Read();
+		delete o;
 	}
 }
