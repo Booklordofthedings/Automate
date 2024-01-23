@@ -38,4 +38,22 @@ class Files
 		else
 			au.ThrowError("Input parameter for deletefile is not a string");
 	}
+
+	public static void CopyFile(Automate au)
+	{
+		var dest = au.Stack.Pop!();
+		if(dest.HasValue && dest.VariantType == typeof(String))
+		{
+			var target = au.Stack.Pop!();
+			if(target.HasValue && target.VariantType == typeof(String) && File.Exists(target.Get<String>()))
+			{
+				File.Copy(target.Get<String>(),dest.Get<String>())
+					.IgnoreError();
+			}
+			else
+				au.ThrowError("Invalid target file");
+		}
+		else
+			au.ThrowError("Destination is not a string or unavailable");
+	}
 }

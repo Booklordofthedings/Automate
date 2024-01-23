@@ -35,8 +35,16 @@ class Automate
 		Commands.Add("round", => Automate.Commands.Math.Round);
 		Commands.Add("roundfin", => Automate.Commands.Math.RoundFin);
 
+		//Comparisons
+		Commands.Add("less", => Comparisons.LessThan);
+		Commands.Add("greater", => Comparisons.GreaterThan);
+		Commands.Add("lessEquals", => Comparisons.LessThanEquals);
+		Commands.Add("greaterEquals", => Comparisons.GreaterThanEquals);
+		Commands.Add("equals", => Comparisons.Equals);
+
 		//IO
 		Commands.Add("mkf", => Files.MakeFile);
+		Commands.Add("cpf", => Files.CopyFile);
 		Commands.Add("rmf", => Files.DeleteFile);
 		Commands.Add("mkd", => Directories.MakeDirectory);
 		 
@@ -49,6 +57,8 @@ class Automate
 		Commands.Add("return", => Functions.Return);
 		Commands.Add("goto", => Functions.Goto);
 		Commands.Add("gorel", => Functions.GotoRelative);
+		Commands.Add("jmpiz", => Functions.JumpIfZero);
+		Commands.Add("jmp", => Functions.Jump);
 	}
 
 	public void ThrowError(StringView error)
