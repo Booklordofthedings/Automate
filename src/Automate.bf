@@ -16,21 +16,39 @@ class Automate
 		///Register the default commands that automate is using
 
 		//Conversions
-		Commands.Add("stringToNum", => Conversions.StringToNum);
-		Commands.Add("numToString", => Conversions.NumToString);
+		Commands.Add("string->num", => Conversions.StringToNum);
+		Commands.Add("num->string", => Conversions.NumToString);
+		Commands.Add("string->bool", => Conversions.StringToBool);
+		Commands.Add("bool->string", => Conversions.BoolToString);
 
 		//Math
-		Commands.Add("add", => Automate.Commands.Math.Add);
-		Commands.Add("sub", => Automate.Commands.Math.Sub);
-		Commands.Add("mult", => Automate.Commands.Math.Mult);
-		Commands.Add("div", => Automate.Commands.Math.Div);
+		Commands.Add("+", => Automate.Commands.Math.Add);
+		Commands.Add("-", => Automate.Commands.Math.Sub);
+		Commands.Add("*", => Automate.Commands.Math.Mult);
+		Commands.Add("/", => Automate.Commands.Math.Div);
+		Commands.Add("sqrt", => Automate.Commands.Math.Root);
+		Commands.Add("%", => Automate.Commands.Math.Modulo);
+		Commands.Add("pow", => Automate.Commands.Math.Pow);
+		Commands.Add("sqr", => Automate.Commands.Math.Square);
+		Commands.Add("cube", => Automate.Commands.Math.Cube);
+		Commands.Add("pi", => Automate.Commands.Math.Pi);
+		Commands.Add("round", => Automate.Commands.Math.Round);
+		Commands.Add("roundfin", => Automate.Commands.Math.RoundFin);
 
 		//IO
 		Commands.Add("mkf", => Files.MakeFile);
+		Commands.Add("rmf", => Files.DeleteFile);
 		Commands.Add("mkd", => Directories.MakeDirectory);
+		 
+		//Debugging
+		Commands.Add("print", => Echo.Echo);
+		Commands.Add("printf", => Echo.Print);
 
-		Commands.Add("echo", => Echo.Echo);
-		Commands.Add("print", => Echo.Print);
+		//Functions
+		Commands.Add("call", => Functions.Call);
+		Commands.Add("return", => Functions.Return);
+		Commands.Add("goto", => Functions.Goto);
+		Commands.Add("gorel", => Functions.GotoRelative);
 	}
 
 	public void ThrowError(StringView error)

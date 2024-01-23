@@ -5,6 +5,7 @@ class AutomateInstructions
 {
 
 	private List<StringView> _Instructions = new .(200) ~ delete _;
+	private List<int64> _FunctionCalls = new .(100) ~ delete _;
 	private Dictionary<StringView, int64> _Labels = new .(5) ~ delete _;
 	private Dictionary<StringView, double> _Literals = new .(10) ~ delete _; 
 	private int _OffsetCounter = 0;
@@ -84,5 +85,25 @@ class AutomateInstructions
 			
 		}
 		return "exit";
+	}
+
+	[Inline]
+	public void Call(StringView pLabel)
+	{
+		if(_Labels.ContainsKey(pLabel))
+		{
+			_FunctionCalls.Add(_ProgramCounter);
+			_ProgramCounter = _Labels[pLabel];
+		}
+	}
+
+	[Inline]
+	public void Return()
+	{
+		if(_FunctionCalls.Count > 0)
+		{
+			var t  = _FunctionCalls.PopBack();
+			_ProgramCounter = t;
+		}
 	}
 }

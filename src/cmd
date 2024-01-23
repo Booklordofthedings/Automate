@@ -1,0 +1,47 @@
+//Instruction set
+x Create file //Create a file at the given location on disk or error if thats not possible for some reason
+o Copy file
+x Delete file
+o Rename file
+o Exists file
+x Print file
+
+x Create Dir
+o Remove Dir
+o Copy Dir
+o Rename Dir
+o Exists Dir
+
+x Add
+x Subtract
+x Multiply
+x Divide
+x Squareroot
+x Modulo
+x Pow
+x Square
+x Cube
+x Pi
+x Round
+x RoundFinance
+
+o Lesser
+o Greater
+o LesserEquals
+o GreateEquals
+o Equals
+
+x StringToBool
+x BoolToString
+x StringToDouble
+x DoubleToString
+
+x Goto //Set the program counter to the given number
+x Goto relative //Change the program counter by the given number
+o JumpIfZero //Jump if the stack has a 0
+o JumpIf //Jump if the stack has a true
+o CMD //Call a shell command
+x Call
+x Return
+
+x Print

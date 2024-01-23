@@ -6,7 +6,13 @@ Name = "Automate"
 StartupObject = "Automate.Program"
 
 [Platform.Windows]
+IconFile = "automate.ico"
 Description = "Scripting language runner"
+Company = "Booklordofthedings"
+Product = "Automate"
+Copyright = "Booklordofthedings"
+FileVersion = "1.0"
+ProductVersion = "1.0"
 
 [Configs.Debug.Win64]
-TargetName = "AUtomate"
+TargetName = "Automate"
